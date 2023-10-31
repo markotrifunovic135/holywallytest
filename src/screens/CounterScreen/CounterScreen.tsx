@@ -7,8 +7,10 @@ import Button from '../../components/Button/Button';
 import { useCounterHook } from '../../hooks/useCounterHook';
 import commonStyles from '../../styles/commonStyles';
 
+const ZER0_STEP = 0;
+
 const CounterScreen = () => {
-  const { counter, setCounter } = useCounterHook(0);
+  const { counter, setCounter } = useCounterHook(ZER0_STEP);
   const [step, setStep] = useState(1);
   const [visible, setVisible] = useState<boolean>(false);
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -18,10 +20,10 @@ const CounterScreen = () => {
   }, [step]);
 
   const decrementCounter = useCallback(() => {
-    if (counter - step >= 0) {
+    if (counter - step >= ZER0_STEP) {
       setCounter(prevState => prevState - step);
     } else {
-      setCounter(0);
+      setCounter(ZER0_STEP);
     }
   }, [counter, step]);
 
