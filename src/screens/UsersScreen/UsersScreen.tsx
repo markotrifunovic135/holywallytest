@@ -1,13 +1,15 @@
 import { View, Text, FlatList, TouchableOpacity, Platform, Linking } from 'react-native'
 import React from 'react'
 import styles from './UsersScreen.styles'
-import { usersData } from '../../constants'
 import { UserType } from './model'
 import commonStyles from '../../styles/commonStyles'
+import { useGetUsersQuery } from '../../store/services/usersApiSlice'
 
 const USER_LABEL = 'Users location';
 
 const UsersScreen = () => {
+    const { data: users } = useGetUsersQuery({});
+
     const renderUserItem = ({ item: { name, company, address: { suite, street, zipcode, city, geo } } }: { item: UserType }) => {
         const latLng = `${geo.lat},${geo.lng}`;
         const scheme = Platform.select({ ios: 'maps://0,0?q=', android: 'geo:0,0?q=' });
@@ -29,7 +31,7 @@ const UsersScreen = () => {
                 <FlatList
                     bounces={false}
                     showsVerticalScrollIndicator={false}
-                    data={usersData}
+                    data={users}
                     renderItem={renderUserItem}
                     keyExtractor={(item) => item.id.toString()}
                 />
