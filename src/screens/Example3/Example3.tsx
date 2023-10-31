@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
+import React, { useState, useEffect, useRef } from "react";
+import { View, Text, TextInput, Button, Alert } from "react-native";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
-  const timerRef = useRef<NodeJS.Timeout | null>(null); 
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     timerRef.current = setTimeout(() => {
-      Alert.alert('Do you need help?');
+      Alert.alert("Do you need help?");
     }, 5000);
 
     return () => {
@@ -29,7 +29,9 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    Alert.alert('Login submitted: ' + formData.username + ', ' + formData.password);
+    Alert.alert(
+      "Login submitted: " + formData.username + ", " + formData.password,
+    );
   };
 
   return (
@@ -38,21 +40,21 @@ const Login = () => {
       <View>
         <TextInput
           placeholder="your-email@email.com"
-          onChangeText={(text) => handleChange('username', text)}
+          onChangeText={(text) => handleChange("username", text)}
           value={formData.username}
         />
       </View>
       <View>
         <TextInput
           placeholder="Enter your password"
-          secureTextEntry={true}
-          onChangeText={(text) => handleChange('password', text)}
+          secureTextEntry
+          onChangeText={(text) => handleChange("password", text)}
           value={formData.password}
         />
       </View>
       <Button title="Login" onPress={handleSubmit} />
     </View>
   );
-}
+};
 
 export default Login;

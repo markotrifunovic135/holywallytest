@@ -1,8 +1,8 @@
 export type RootStackParamList = {
-    BottomTabNavigator: undefined;
+  BottomTabNavigator: undefined;
 };
 
 export type BottomStackParamList = {
-    UsersScreen: undefined;
-    CounterScreen: undefined;
+  UsersScreen: undefined;
+  CounterScreen: undefined;
 };

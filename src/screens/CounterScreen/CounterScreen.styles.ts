@@ -1,9 +1,8 @@
 import { StyleSheet } from 'react-native';
-import colors from '../../colors/colors';
+import colors from '../../constants/colors';
 
 const styles = StyleSheet.create({
 container: {
-    flex: 1,
     paddingTop: 20,
 },
 paddingTop_50: {
@@ -35,8 +34,6 @@ contentContainer: {
   },
   dropdownHeader: {
     padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: colors.blue_200,
     borderRadius: 12,
     height: 50,
@@ -55,37 +52,29 @@ contentContainer: {
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: colors.dropdown_item_color,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   textStyleHeader: {
-    alignSelf: 'center',
     fontSize: 26,
     marginTop: 40,
   },
   textStyleHeaderSmall: {
-    alignSelf: 'center',
     fontSize: 18,
     marginTop: 8,
     color: colors.gray_500,
   },
-  allowButtonContainer: {
+  incrementButtonContainer: {
     backgroundColor: colors.blue_200,
     width: '100%',
     borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
     height: 50,
   },
   buttonText: {
     fontSize: 16,
     color: colors.background_white,
   },
-  skipButtonContainer: {
+  decrementButtonContainer: {
     width: '100%',
     borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
     height: 50,
   },
   skipText: {

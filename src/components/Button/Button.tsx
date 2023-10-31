@@ -1,5 +1,5 @@
-import { ViewStyle, StyleProp, TouchableOpacity, TextStyle, Text } from 'react-native';
 import React from 'react';
+import { ViewStyle, StyleProp, TouchableOpacity, TextStyle, Text } from 'react-native';
 
 interface PropsT {
   containerStyle?: StyleProp<ViewStyle>;

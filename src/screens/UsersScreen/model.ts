@@ -1,4 +1,4 @@
-export interface UserObj {
+export interface UserType {
         id: number,
         name: string,
         username: string,

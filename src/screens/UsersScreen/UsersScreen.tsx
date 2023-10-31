@@ -2,18 +2,18 @@ import { View, Text, FlatList, TouchableOpacity, Platform, Linking } from 'react
 import React from 'react'
 import styles from './UsersScreen.styles'
 import { usersData } from '../../constants'
-import { UserObj } from './model'
+import { UserType } from './model'
+import commonStyles from '../../styles/commonStyles'
+
+const USER_LABEL = 'Users location';
 
 const UsersScreen = () => {
-    const renderUserItem = ({ item }: { item: UserObj }) => {
-        const { name, company, address } = item;
-        const { suite, street, zipcode, city } = address;
-        const latLng = `${address.geo.lat},${address.geo.lng}`;
-        const label = 'Users location';
+    const renderUserItem = ({ item: { name, company, address: { suite, street, zipcode, city, geo } } }: { item: UserType }) => {
+        const latLng = `${geo.lat},${geo.lng}`;
         const scheme = Platform.select({ ios: 'maps://0,0?q=', android: 'geo:0,0?q=' });
         const url = Platform.select({
-            ios: `${scheme}${label}@${latLng}`,
-            android: `${scheme}${latLng}(${label})`
+            ios: `${scheme}${USER_LABEL}@${latLng}`,
+            android: `${scheme}${latLng}(${USER_LABEL})`
         });
         return (
             <TouchableOpacity style={styles.userItem} onPress={() => Linking.openURL(url || '')}>
@@ -24,8 +24,8 @@ const UsersScreen = () => {
         );
     };
     return (
-        <View style={styles.container}>
-            <View style={styles.contentContainer}>
+        <View style={[styles.container, commonStyles.flex]}>
+            <View style={[styles.contentContainer, commonStyles.flex]}>
                 <FlatList
                     bounces={false}
                     showsVerticalScrollIndicator={false}
