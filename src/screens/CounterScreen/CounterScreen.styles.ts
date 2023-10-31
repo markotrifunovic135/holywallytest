@@ -2,16 +2,16 @@ import { StyleSheet } from 'react-native';
 import colors from '../../constants/colors';
 
 const styles = StyleSheet.create({
-container: {
+  container: {
     paddingTop: 20,
-},
-paddingTop_50: {
+  },
+  paddingTop_50: {
     paddingTop: 50,
-},
-contentContainer: {
+  },
+  contentContainer: {
     flex: 1,
     padding: 16,
-},
+  },
   scrollContainer: {
     flexGrow: 1,
     paddingBottom: 10,

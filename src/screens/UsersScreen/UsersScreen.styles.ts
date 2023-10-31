@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native';
 import colors from '../../constants/colors';
 
 const styles = StyleSheet.create({
-container: {
+  container: {
     paddingTop: 20,
-},
-contentContainer: {
+  },
+  contentContainer: {
     padding: 16,
     paddingBottom: 8,
-},
-userItem: {
+  },
+  userItem: {
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: colors.dropdown_item_color,

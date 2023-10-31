@@ -1,7 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { usersApi } from './services/usersApiSlice';
 import { useDispatch } from 'react-redux';
-
+import { usersApi } from './services/usersApiSlice';
 
 export const rootReducer = combineReducers({
   [usersApi.reducerPath]: usersApi.reducer,
@@ -10,8 +9,7 @@ export const rootReducer = combineReducers({
 const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: getDefaultMiddleware =>
-      getDefaultMiddleware().concat(usersApi.middleware),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(usersApi.middleware),
   });
 };
 

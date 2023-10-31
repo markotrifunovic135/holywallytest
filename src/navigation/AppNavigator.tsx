@@ -9,7 +9,7 @@ const AppNavigator = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
-export default AppNavigator
+export default AppNavigator;
