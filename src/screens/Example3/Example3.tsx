@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, TextInput, Button, Alert } from 'react-native';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ const Login = () => {
 
   useEffect(() => {
     timerRef.current = setTimeout(() => {
-      alert('Do you need help?');
+      Alert.alert('Do you need help?');
     }, 5000);
 
     return () => {
@@ -18,46 +19,39 @@ const Login = () => {
         clearTimeout(timerRef.current);
       }
     };
-  }, []); 
+  }, []);
 
-  const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+  const handleChange = (field: string, value: string) => {
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [field]: value,
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    alert('Login submitted: ' + formData.username + ', ' + formData.password);
+  const handleSubmit = () => {
+    Alert.alert('Login submitted: ' + formData.username + ', ' + formData.password);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      <div>
-        <div>
-          <input
-            name="username"
-            type="text"
-            placeholder="your-email@email.com"
-            onChange={handleChange}
-            value={formData.username}
-          />
-        </div>
-        <div>
-          <input
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-            onChange={handleChange}
-            value={formData.password}
-          />
-        </div>
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <View>
+      <Text>Login</Text>
+      <View>
+        <TextInput
+          placeholder="your-email@email.com"
+          onChangeText={(text) => handleChange('username', text)}
+          value={formData.username}
+        />
+      </View>
+      <View>
+        <TextInput
+          placeholder="Enter your password"
+          secureTextEntry={true}
+          onChangeText={(text) => handleChange('password', text)}
+          value={formData.password}
+        />
+      </View>
+      <Button title="Login" onPress={handleSubmit} />
+    </View>
   );
 }
 

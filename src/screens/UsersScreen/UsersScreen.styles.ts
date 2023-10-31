@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../colors/colors';
 
 const styles = StyleSheet.create({
 container: {
     flex: 1,
     paddingTop: 20,
-    // backgroundColor: 'white',
 },
 contentContainer: {
     flex: 1,
@@ -14,7 +14,7 @@ contentContainer: {
 userItem: {
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: colors.dropdown_item_color,
   },
   userName: {
     fontSize: 18,
@@ -25,7 +25,7 @@ userItem: {
   },
   address: {
     fontSize: 14,
-    color: 'gray',
+    color: colors.gray_500,
   },
 });
 

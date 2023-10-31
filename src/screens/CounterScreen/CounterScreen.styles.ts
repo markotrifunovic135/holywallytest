@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../colors/colors';
 
 const styles = StyleSheet.create({
 container: {
     flex: 1,
     paddingTop: 20,
-    // backgroundColor: 'white',
 },
 paddingTop_50: {
     paddingTop: 50,
@@ -17,19 +17,13 @@ contentContainer: {
     flexGrow: 1,
     paddingBottom: 10,
   },
-bottomSheetShadow: {
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
-  },
   dropdownContainer: {
     width: '100%',
     borderRadius: 12,
   },
   shadowProp: {
-    backgroundColor: 'white',
-    shadowColor: '#000',
+    backgroundColor: colors.background_white,
+    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 1,
@@ -43,7 +37,7 @@ bottomSheetShadow: {
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0496FF',
+    backgroundColor: colors.blue_200,
     borderRadius: 12,
     height: 50,
   },
@@ -55,12 +49,12 @@ bottomSheetShadow: {
     borderRadius: 12,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    backgroundColor: 'white',
+    backgroundColor: colors.background_white,
   },
   dropdownItem: {
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: colors.dropdown_item_color,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -73,10 +67,10 @@ bottomSheetShadow: {
     alignSelf: 'center',
     fontSize: 18,
     marginTop: 8,
-    color: '#7B7B7B',
+    color: colors.gray_500,
   },
   allowButtonContainer: {
-    backgroundColor: '#0496FF',
+    backgroundColor: colors.blue_200,
     width: '100%',
     borderRadius: 12,
     alignItems: 'center',
@@ -85,7 +79,7 @@ bottomSheetShadow: {
   },
   buttonText: {
     fontSize: 16,
-    color: '#fff',
+    color: colors.background_white,
   },
   skipButtonContainer: {
     width: '100%',
@@ -96,7 +90,7 @@ bottomSheetShadow: {
   },
   skipText: {
     fontSize: 16,
-    color: '#7B7B7B',
+    color: colors.gray_500,
   },
   marginTop_12: {
     marginTop: 12,
@@ -106,7 +100,7 @@ bottomSheetShadow: {
   },
   dropdownText: {
     fontSize: 16,
-    color: '#fff',
+    color: colors.background_white,
   },
 });
 

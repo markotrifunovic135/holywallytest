@@ -1,0 +1,23 @@
+
+1. Unit Tests for Components and Business Logic:
+    Unit tests focus on testing individual components and functions in isolation. For React Native, I use Jest as the testing framework.
+    Edge Cases: For components I focus on testing various states, including rendering with different props, handling user interactions, and verifying component logic. For business logic, I test various code paths, error handling, and edge cases.
+
+2. Integration Tests:
+    Integration tests ensure that different parts of your application work together as expected. These tests verify that the components and business logic interact correctly.
+    Edge Cases: I Test the interactions between components, navigation, and data flow. For example, verify that data fetched from an API is correctly displayed in components.
+
+3. End-to-End (E2E) Tests:
+    E2E tests focus on the entire application's functionality and simulate user interactions to ensure it works correctly from the user's perspective.
+    I use Detox for E2E testing in React Native.
+    Edge Cases: I Test common user scenarios, including authentication, navigation, form submissions, and interactions with the UI. Verify that the app works as expected on different devices and screen sizes.
+
+4. Snapshot Testing:
+    Snapshot testing is valuable for capturing and verifying changes in the UI over time. It's especially useful for detecting unintended UI changes.
+    Jest's snapshot testing is a built-in feature for React Native applications.
+    Edge Cases: I Capture snapshots of components and ensure that changes are intentional. Update snapshots when UI changes are intended and expected.
+
+5. Device Testing:
+    I Test my apps on a variety of real devices and emulators/simulators to ensure compatibility and performance.
+    Xcode for iOS simulator, Android Studio for Android emulator, and various cloud-based testing services for real devices.
+    Edge Cases: Test on different screen sizes, resolutions, and versions of Android and iOS. Check for compatibility and performance across various devices.

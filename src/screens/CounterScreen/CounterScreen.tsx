@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './CounterScreen.styles';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
@@ -7,22 +7,22 @@ import Button from '../../components/Button/Button';
 import { useCounterHook } from '../../hooks/useCounterHook';
 
 const CounterScreen = () => {
-    const [counter, setCounter] = useCounterHook(0);
+    const {counter, setCounter} = useCounterHook(0);
     const [step, setStep] = useState(1);
     const [visible, setVisible] = useState<boolean>(false);
     const bottomSheetRef = useRef<BottomSheet>(null);
 
-    const incrementCounter = () => {
-        setCounter(counter + step);
-    };
+    const incrementCounter = useCallback (() => {
+        setCounter((prevState) => prevState + step);
+    }, [step]);
 
-    const decrementCounter = () => {
+    const decrementCounter = useCallback (() => {
         if (counter - step >= 0) {
-            setCounter(counter - step);
+            setCounter((prevState) => prevState - step);
         } else {
             setCounter(0);
         }
-    };
+    }, [counter, step]);
 
     return (
         <View style={[styles.container, styles.paddingTop_50]}>
@@ -53,8 +53,7 @@ const CounterScreen = () => {
                     index={0}
                     snapPoints={['45%']}
                     onClose={() => setVisible(false)}
-                    enablePanDownToClose
-                    style={styles.bottomSheetShadow}>
+                    enablePanDownToClose>
                     <BottomSheetScrollView contentContainerStyle={[styles.contentContainer, styles.scrollContainer]}>
                         {stepItems.map(item => (
                             <TouchableOpacity style={styles.dropdownItem}

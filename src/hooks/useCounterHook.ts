@@ -1,7 +1,7 @@
 import { useState, Dispatch, SetStateAction } from 'react';
 
-export const useCounterHook = (initialCount = 0): [number, Dispatch<SetStateAction<number>>] => {
+export const useCounterHook = (initialCount = 0) => {
   const [counter, setCounter] = useState<number>(initialCount);
 
-  return [counter, setCounter];
+  return {counter, setCounter};
 }
